@@ -1,8 +1,8 @@
 {
-  "name": "iphone-exmaple-gsap",
-  "private": true,
-  "version": "0.0.0",
+  "name": "iphone-example-gsap",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
+    "gsap": "^3.12.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.1",
