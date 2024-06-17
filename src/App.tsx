@@ -1,5 +1,13 @@
-import { Outlet } from 'react-router-dom'
+import NavBar from '@/components/nav-bar.tsx'
+import Hero from '@/components/hero.tsx'
+import HighLights from '@/components/high-lights.tsx'
 
 export default function App() {
-  return <Outlet />
+  return (
+    <main className="bg-black">
+      <NavBar />
+      <Hero />
+      <HighLights />
+    </main>
+  )
 }

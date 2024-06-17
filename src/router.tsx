@@ -6,8 +6,13 @@ import GsapTimeline from '@/pages/example/gsap/timeline.tsx'
 import GsapStagger from '@/pages/example/gsap/stagger.tsx'
 import GsapScrollTrigger from '@/pages/example/gsap/scroll-trigger.tsx'
 import GsapText from '@/pages/example/gsap/text.tsx'
+import App from '@/App.tsx'
 
 const router = createBrowserRouter([
+  {
+    path: '',
+    element: <App />,
+  },
   {
     path: '/example',
     element: <Outlet />,
