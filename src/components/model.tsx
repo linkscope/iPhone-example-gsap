@@ -105,22 +105,20 @@ export default function Model() {
                   <li
                     key={index}
                     className="mx-2 size-6 cursor-pointer rounded-full"
-                    style={{
-                        backgroundColor: model.color[0],
-                      }}
+                    style={{ backgroundColor: model.color[0] }}
                     onClick={() => setModel(model)}
                   />
                 ))}
               </ul>
-              <button className="size-btn-container">
+              <button type="button" className="size-btn-container">
                 {sizeList.map(({ label, value }) => (
                   <span
                     key={label}
                     className="size-btn"
                     style={{
-                        backgroundColor: size === value ? 'white' : 'transparent',
-                        color: size === value ? 'black' : 'white',
-                      }}
+                      backgroundColor: size === value ? 'white' : 'transparent',
+                      color: size === value ? 'black' : 'white',
+                    }}
                     onClick={() => setSize(value as 'small' | 'large')}
                   >
                     {label}

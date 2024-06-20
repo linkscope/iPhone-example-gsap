@@ -23,11 +23,7 @@ interface Props {
 
 export default function ModelView({ index, groupRef, controlRef, gsapType, size, setRotationState, item }: Props) {
   return (
-    <View
-      index={index}
-      id={gsapType}
-      className={cn('size-full absolute', index === 2 && 'right-[-100%]')}
-    >
+    <View index={index} id={gsapType} className={cn('size-full absolute', index === 2 && 'right-[-100%]')}>
       {/*  环境光 */}
       <ambientLight intensity={0.5} />
       {/*  镜头 缩放为4 */}
@@ -44,11 +40,7 @@ export default function ModelView({ index, groupRef, controlRef, gsapType, size,
         target={new THREE.Vector3(0, 0, 0) as any}
         onEnd={() => setRotationState(controlRef.current.getAzimuthalAngle())}
       />
-      <group
-        ref={groupRef}
-        name={`${index === 1 ? 'small' : 'large'}`}
-        position={[0, 0, 0]}
-      >
+      <group ref={groupRef} name={`${index === 1 ? 'small' : 'large'}`} position={[0, 0, 0]}>
         <Suspense fallback={<Loader />}>
           <IPhone scale={index === 1 ? [15, 15, 15] : [17, 17, 17]} item={item} size={size} />
         </Suspense>

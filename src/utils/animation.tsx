@@ -1,4 +1,4 @@
-// @ts-expect-error
+// @ts-expect-error this module need to typed
 import type gsap from 'gsap'
 import type * as THREE from 'three'
 
@@ -16,10 +16,14 @@ export function animateWithGsapTimeline(
     ease: 'power2.inOut',
   })
 
-  timeline.to(firstTarget, {
-    ...animationProps,
-    ease: 'power2.inOut',
-  }, '<')
+  timeline.to(
+    firstTarget,
+    {
+      ...animationProps,
+      ease: 'power2.inOut',
+    },
+    '<',
+  )
 
   timeline.to(
     secondTarget,

@@ -9,7 +9,11 @@ import { useGLTF, useTexture } from '@react-three/drei'
 import { useEffect } from 'react'
 import * as THREE from 'three'
 
-export default function IPhone(props: JSX.IntrinsicElements['group'] & {
+export default function IPhone({
+  item,
+  size,
+  ...props
+}: JSX.IntrinsicElements['group'] & {
   item: {
     title: string
     color: string[]
@@ -20,21 +24,23 @@ export default function IPhone(props: JSX.IntrinsicElements['group'] & {
   const { nodes, materials } = useGLTF('/models/scene.glb') as any
 
   // 将壁纸图片添加纹理到模型上 这样会使得模型看起来更加逼真
-  const texture = useTexture(props.item.img)
+  const texture = useTexture(item.img)
 
   useEffect(() => {
     Object.entries(materials).forEach((material: any) => {
       // 物料的名称 这些物料不能修改颜色
-      if (material[0] !== 'zFdeDaGNRwzccye'
-        && material[0] !== 'ujsvqBWRMnqdwPx'
-        && material[0] !== 'hUlRcbieVuIiOXG'
-        && material[0] !== 'jlzuBkUzuJqgiAK'
-        && material[0] !== 'xNrofRCqOXXHVZt') {
-        material[1].color = new THREE.Color(props.item.color[0])
+      if (
+        material[0] !== 'zFdeDaGNRwzccye' &&
+        material[0] !== 'ujsvqBWRMnqdwPx' &&
+        material[0] !== 'hUlRcbieVuIiOXG' &&
+        material[0] !== 'jlzuBkUzuJqgiAK' &&
+        material[0] !== 'xNrofRCqOXXHVZt'
+      ) {
+        material[1].color = new THREE.Color(item.color[0])
       }
       material[1].needsUpdate = true
     })
-  }, [materials, props.item])
+  }, [materials, item])
 
   return (
     <group {...props} dispose={null}>

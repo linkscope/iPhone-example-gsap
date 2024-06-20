@@ -14,10 +14,7 @@ export const navList = ['商店', 'Mac', 'iPhone', '技术支持']
 export const highlightSlideList = [
   {
     id: 1,
-    textLists: [
-      'A17 Pro，芯的颠覆，',
-      '性能直接逆天。',
-    ],
+    textLists: ['A17 Pro，芯的颠覆，', '性能直接逆天。'],
     video: highlightFirstVideo,
     videoDuration: 4,
   },
@@ -29,10 +26,7 @@ export const highlightSlideList = [
   },
   {
     id: 3,
-    textLists: [
-      'iPhone 15 Pro Max 光学变焦范围',
-      '创 iPhone 记录，有远见。',
-    ],
+    textLists: ['iPhone 15 Pro Max 光学变焦范围', '创 iPhone 记录，有远见。'],
     video: highlightThirdVideo,
     videoDuration: 2,
   },
@@ -76,10 +70,4 @@ export const sizeList = [
   { label: '6.7英寸', value: 'large' },
 ]
 
-export const footerLinkList = [
-  '隐私政策',
-  '使用条款',
-  '销售政策',
-  '法律信息',
-  '网站地图',
-]
+export const footerLinkList = ['隐私政策', '使用条款', '销售政策', '法律信息', '网站地图']

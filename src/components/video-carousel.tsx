@@ -38,7 +38,7 @@ export default function VideoCarousel() {
         toggleActions: 'restart none none none', // 重置onEnter钩子，激活onComplete钩子
       },
       onComplete: () => {
-        setVideo(prev => ({
+        setVideo((prev) => ({
           ...prev,
           startPlay: true,
           isPlaying: true,
@@ -52,8 +52,7 @@ export default function VideoCarousel() {
     if (loadedData.length > 3) {
       if (!isPlaying) {
         videoRef.current[videoId]?.pause()
-      }
-      else {
+      } else {
         startPlay && videoRef.current[videoId]?.play()
       }
     }
@@ -105,8 +104,7 @@ export default function VideoCarousel() {
 
       if (isPlaying) {
         gsap.ticker.add(animateUpdate)
-      }
-      else {
+      } else {
         gsap.ticker.remove(animateUpdate)
       }
     }
@@ -116,22 +114,22 @@ export default function VideoCarousel() {
     switch (type) {
       // 播放结束自动播放下一个
       case 'video-end':
-        setVideo(prev => ({
+        setVideo((prev) => ({
           ...prev,
           isEnd: true,
           videoId: index! + 1,
         }))
         break
-        // 播放至最后一个暂停
+      // 播放至最后一个暂停
       case 'video-last':
-        setVideo(prev => ({
+        setVideo((prev) => ({
           ...prev,
           isLastVideo: true,
         }))
         break
-        // 播放至最后一个点击按钮重置到第一个播放
+      // 播放至最后一个点击按钮重置到第一个播放
       case 'video-reset':
-        setVideo(prev => ({
+        setVideo((prev) => ({
           ...prev,
           isLastVideo: false,
           videoId: 0,
@@ -139,7 +137,7 @@ export default function VideoCarousel() {
         break
       case 'play':
       case 'pause':
-        setVideo(prev => ({
+        setVideo((prev) => ({
           ...prev,
           isPlaying: !prev.isPlaying,
         }))
@@ -154,28 +152,32 @@ export default function VideoCarousel() {
       <div className="flex items-center">
         {highlightSlideList.map((list, index) => (
           <div key={list.id} id="slider" className="relative pr-10 sm:pr-20">
-            <div
-              className="video-carousel_container flex items-center justify-center overflow-hidden rounded-3xl bg-black"
-            >
+            <div className="video-carousel_container flex items-center justify-center overflow-hidden rounded-3xl bg-black">
               <video
                 className={cn(list.id === 2 && 'translate-x-20', 'pointer-events-none')}
-                ref={el => videoRef.current[index] = el}
+                ref={(el) => (videoRef.current[index] = el)}
                 id="video"
                 playsInline
                 preload="auto"
                 muted
-                onPlay={() => setVideo(prev => ({
-                  ...prev,
-                  isPlaying: true,
-                }))}
-                onEnded={() => index !== highlightSlideList.length - 1 ? handleProcess('video-end', index) : handleProcess('video-last')}
-                onLoadedMetadata={e => setLoadedData(prev => [...prev, e])}
+                onPlay={() =>
+                  setVideo((prev) => ({
+                    ...prev,
+                    isPlaying: true,
+                  }))
+                }
+                onEnded={() =>
+                  index !== highlightSlideList.length - 1
+                    ? handleProcess('video-end', index)
+                    : handleProcess('video-last')
+                }
+                onLoadedMetadata={(e) => setLoadedData((prev) => [...prev, e])}
               >
                 <source src={list.video} type="video/mp4" />
               </video>
             </div>
             <div className="absolute left-[5%] top-12 z-10">
-              {list.textLists.map(text => (
+              {list.textLists.map((text) => (
                 <p key={text} className="text-xl font-medium md:text-2xl">
                   {text}
                 </p>
@@ -186,19 +188,14 @@ export default function VideoCarousel() {
       </div>
 
       <div className="mt-10 flex items-center justify-center">
-        <div
-          className="flex items-center justify-center gap-x-4 rounded-full bg-gray-300 px-7 py-5 backdrop-blur"
-        >
+        <div className="flex items-center justify-center gap-x-4 rounded-full bg-gray-300 px-7 py-5 backdrop-blur">
           {videoRef.current.map((_, index) => (
             <div
               key={index}
-              ref={el => videoDivRef.current[index] = el}
+              ref={(el) => (videoDivRef.current[index] = el)}
               className="relative size-3 cursor-pointer rounded-full bg-gray-200"
             >
-              <span
-                className="absolute size-full rounded-full"
-                ref={el => videoSpanRef.current[index] = el}
-              />
+              <span className="absolute size-full rounded-full" ref={(el) => (videoSpanRef.current[index] = el)} />
             </div>
           ))}
         </div>
@@ -207,7 +204,13 @@ export default function VideoCarousel() {
           <img
             src={isLastVideo ? replayImg : !isPlaying ? playImg : pauseImg}
             alt={isLastVideo ? 'replay' : !isPlaying ? 'play' : 'pause'}
-            onClick={isLastVideo ? () => handleProcess('video-reset') : !isPlaying ? () => handleProcess('play') : () => handleProcess('pause')}
+            onClick={
+              isLastVideo
+                ? () => handleProcess('video-reset')
+                : !isPlaying
+                  ? () => handleProcess('play')
+                  : () => handleProcess('pause')
+            }
           />
         </button>
       </div>

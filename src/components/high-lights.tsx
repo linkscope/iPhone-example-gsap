@@ -33,7 +33,9 @@ export default function HighLights() {
     <section id="highlights" className="common-padding h-full w-screen overflow-hidden bg-zinc">
       <div className="screen-max-width">
         <div className="mb-12 flex w-full justify-between max-md:flex-col">
-          <h1 id="title" className="section-heading">先刷重点。</h1>
+          <h1 id="title" className="section-heading">
+            先刷重点。
+          </h1>
           <div className="flex items-end gap-5">
             <a
               href="https://www.apple.com.cn/105/media/cn/iphone-15-pro/2023/2f337511-a940-4b57-b89c-1512b7507777/films/product/iphone-15-pro-product-tpl-cn-2023_16x9.m3u8"

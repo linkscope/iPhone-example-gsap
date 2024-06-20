@@ -1,8 +1,4 @@
-import {
-  appleImg,
-  bagImg,
-  searchImg,
-} from '@/utils'
+import { appleImg, bagImg, searchImg } from '@/utils'
 import { navList } from '@/constants'
 
 export default function NavBar() {
@@ -11,7 +7,7 @@ export default function NavBar() {
       <nav className="screen-max-width flex w-full">
         <img src={appleImg} alt="Apple" width={14} height={18} />
         <div className="flex flex-1 justify-center gap-x-5 max-sm:hidden">
-          {navList.map(nav => (
+          {navList.map((nav) => (
             <div key={nav} className="cursor-pointer text-sm text-gray transition hover:text-white">
               {nav}
             </div>

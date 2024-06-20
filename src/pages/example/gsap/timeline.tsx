@@ -44,8 +44,7 @@ export default function GsapTimeline() {
         onClick={() => {
           if (timeline.paused()) {
             timeline.play()
-          }
-          else {
+          } else {
             timeline.pause()
           }
         }}
