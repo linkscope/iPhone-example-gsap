@@ -1,10 +1,11 @@
 import type { MutableRefObject } from 'react'
 import { Suspense } from 'react'
-import { Html, OrbitControls, PerspectiveCamera, View } from '@react-three/drei'
+import { OrbitControls, PerspectiveCamera, View } from '@react-three/drei'
 import * as THREE from 'three'
 import { cn } from '@/lib/utils.ts'
 import Lights from '@/components/lights.tsx'
 import IPhone from '@/components/iphone.tsx'
+import Loader from '@/components/loader.tsx'
 
 interface Props {
   index: number
@@ -48,12 +49,7 @@ export default function ModelView({ index, groupRef, controlRef, gsapType, size,
         name={`${index === 1 ? 'small' : 'large'}`}
         position={[0, 0, 0]}
       >
-        <Suspense fallback={(
-          <Html>
-            <div>加载中</div>
-          </Html>
-        )}
-        >
+        <Suspense fallback={<Loader />}>
           <IPhone scale={index === 1 ? [15, 15, 15] : [17, 17, 17]} item={item} size={size} />
         </Suspense>
       </group>

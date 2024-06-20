@@ -23,7 +23,7 @@ export default function IPhone(props: JSX.IntrinsicElements['group'] & {
   const texture = useTexture(props.item.img)
 
   useEffect(() => {
-    Object.entries(materials).map((material: any) => {
+    Object.entries(materials).forEach((material: any) => {
       // 物料的名称 这些物料不能修改颜色
       if (material[0] !== 'zFdeDaGNRwzccye'
         && material[0] !== 'ujsvqBWRMnqdwPx'
