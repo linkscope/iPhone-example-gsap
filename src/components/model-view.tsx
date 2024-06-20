@@ -40,7 +40,7 @@ export default function ModelView({ index, groupRef, controlRef, gsapType, size,
         enableZoom={false}
         enablePan={false}
         rotateSpeed={0.4}
-        target={new THREE.Vector3(0, 0, 0)}
+        target={new THREE.Vector3(0, 0, 0) as any}
         onEnd={() => setRotationState(controlRef.current.getAzimuthalAngle())}
       />
       <group
@@ -54,7 +54,7 @@ export default function ModelView({ index, groupRef, controlRef, gsapType, size,
           </Html>
         )}
         >
-          <IPhone scale={index === 1 ? [15, 15, 15] : [17, 17, 17]} />
+          <IPhone scale={index === 1 ? [15, 15, 15] : [17, 17, 17]} item={item} size={size} />
         </Suspense>
       </group>
     </View>
