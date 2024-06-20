@@ -2,6 +2,7 @@ import NavBar from '@/components/nav-bar.tsx'
 import Hero from '@/components/hero.tsx'
 import HighLights from '@/components/high-lights.tsx'
 import Model from '@/components/model.tsx'
+import Features from '@/components/features.tsx'
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <Hero />
       <HighLights />
       <Model />
+      <Features />
     </main>
   )
 }

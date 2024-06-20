@@ -8,7 +8,7 @@ import { View } from '@react-three/drei'
 import ModelView from '@/components/model-view.tsx'
 import { yellowImg } from '@/utils'
 import { modelList, sizeList } from '@/constants'
-import { animateWithGsapTimeline } from '@/utils/animation.tsx'
+import { animateWithGsap, animateWithGsapTimeline } from '@/utils/animation.tsx'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -45,14 +45,10 @@ export default function Model() {
   }, [size])
 
   useGSAP(() => {
-    gsap.to('#heading', {
+    animateWithGsap('#heading', {
       y: 0,
       opacity: 1,
       duration: 1,
-      scrollTrigger: {
-        trigger: '#heading',
-        start: 'bottom 90%',
-      },
     })
   }, [])
 
@@ -86,7 +82,7 @@ export default function Model() {
             <Canvas
               className="size-full"
               style={{
-                position: 'absolute',
+                position: 'fixed',
                 top: 0,
                 bottom: 0,
                 right: 0,

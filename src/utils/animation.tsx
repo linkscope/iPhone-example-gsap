@@ -1,6 +1,8 @@
-// @ts-expect-error this module need to typed
-import type gsap from 'gsap'
+import gsap from 'gsap'
 import type * as THREE from 'three'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export function animateWithGsapTimeline(
   timeline: gsap.core.Timeline,
@@ -33,4 +35,20 @@ export function animateWithGsapTimeline(
     },
     '<',
   )
+}
+
+export function animateWithGsap(
+  target: gsap.DOMTarget,
+  animationProps: gsap.TweenVars,
+  scrollProps: ScrollTrigger.Vars = {},
+) {
+  gsap.to(target, {
+    ...animationProps,
+    scrollTrigger: {
+      trigger: target,
+      toggleActions: 'restart reverse restart reverse',
+      start: 'top 85%',
+      ...scrollProps,
+    },
+  })
 }

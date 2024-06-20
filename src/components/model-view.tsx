@@ -41,7 +41,6 @@ export default function ModelView({ index, groupRef, controlRef, gsapType, size,
         onEnd={() => setRotationState(controlRef.current.getAzimuthalAngle())}
       />
       <group ref={groupRef} name={`${index === 1 ? 'small' : 'large'}`} position={[0, 0, 0]}>
-        <Loader />
         <Suspense fallback={<Loader />}>
           <IPhone scale={index === 1 ? [15, 15, 15] : [17, 17, 17]} item={item} size={size} />
         </Suspense>
