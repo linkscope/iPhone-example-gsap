@@ -48,6 +48,7 @@ export default function Model() {
     gsap.to('#heading', {
       y: 0,
       opacity: 1,
+      duration: 1,
       scrollTrigger: {
         trigger: '#heading',
         start: 'bottom 90%',
@@ -62,7 +63,7 @@ export default function Model() {
           定睛细看。
         </h1>
         <div className="mt-5 flex flex-col items-center">
-          <div className="relative h-[75vh] w-full overflow-hidden">
+          <div className="relative h-[50vh] w-full overflow-hidden">
             <ModelView
               index={1}
               groupRef={small}
@@ -85,7 +86,7 @@ export default function Model() {
             <Canvas
               className="size-full"
               style={{
-                position: 'fixed',
+                position: 'absolute',
                 top: 0,
                 bottom: 0,
                 right: 0,
