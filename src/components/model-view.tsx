@@ -26,10 +26,10 @@ export default function ModelView({ index, groupRef, controlRef, gsapType, size,
     <View
       index={index}
       id={gsapType}
-      className={cn('size-full', index === 2 && 'right-[-100%]')}
+      className={cn('size-full absolute', index === 2 && 'right-[-100%]')}
     >
       {/*  环境光 */}
-      <ambientLight intensity={0.3} />
+      <ambientLight intensity={0.5} />
       {/*  镜头 缩放为4 */}
       <PerspectiveCamera makeDefault position={[0, 0, 4]} />
       {/*  光照 */}

@@ -1,13 +1,14 @@
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { Canvas } from '@react-three/fiber'
 import { View } from '@react-three/drei'
 import ModelView from '@/components/model-view.tsx'
 import { yellowImg } from '@/utils'
 import { modelList, sizeList } from '@/constants'
+import { animateWithGsapTimeline } from '@/utils/animation.tsx'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -24,6 +25,24 @@ export default function Model() {
   const large = useRef(new THREE.Group())
   const [smallRotation, setSmallRotation] = useState(0)
   const [largeRotation, setLargeRotation] = useState(0)
+
+  const timeline = gsap.timeline()
+
+  useEffect(() => {
+    if (size === 'large') {
+      animateWithGsapTimeline(timeline, small, smallRotation, '#view1', '#view2', {
+        transform: 'translateX(-100%)',
+        duration: 2,
+      })
+    }
+
+    if (size === 'small') {
+      animateWithGsapTimeline(timeline, large, largeRotation, '#view2', '#view1', {
+        transform: 'translateX(0)',
+        duration: 2,
+      })
+    }
+  }, [size])
 
   useGSAP(() => {
     gsap.to('#heading', {
