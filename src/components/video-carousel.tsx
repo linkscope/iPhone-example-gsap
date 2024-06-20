@@ -158,7 +158,7 @@ export default function VideoCarousel() {
               className="video-carousel_container flex items-center justify-center overflow-hidden rounded-3xl bg-black"
             >
               <video
-                className={cn(list.id === 2 && 'translate-x-44', 'pointer-events-none')}
+                className={cn(list.id === 2 && 'translate-x-20', 'pointer-events-none')}
                 ref={el => videoRef.current[index] = el}
                 id="video"
                 playsInline
