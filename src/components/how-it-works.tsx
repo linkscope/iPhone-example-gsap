@@ -25,6 +25,17 @@ export default function HowItWorks() {
       duration: 1,
       ease: 'power2.inOut',
     })
+
+    gsap.to('#hiwVideo', {
+      onComplete: () => {
+        videoRef.current?.play()
+      },
+      scrollTrigger: {
+        trigger: '#hiwVideo',
+        toggleActions: 'play pause reverse restart',
+        start: '-10% bottom',
+      },
+    })
   }, [])
 
   return (
@@ -47,7 +58,7 @@ export default function HowItWorks() {
               <img src={frameImg} alt="frame" className="relative z-10 bg-transparent" />
             </div>
             <div className="hiw-video">
-              <video muted className="pointer-events-none" playsInline preload="none" autoPlay ref={videoRef}>
+              <video id="hiwVideo" muted className="pointer-events-none" playsInline preload="none" ref={videoRef}>
                 <source src={frameVideo} type="video/mp4" />
               </video>
             </div>
