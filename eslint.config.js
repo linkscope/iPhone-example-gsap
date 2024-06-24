@@ -18,6 +18,7 @@ export default antfu({
     'style/indent': 'off',
     'style/operator-linebreak': 'off',
     'jsdoc/check-alignment': 'off',
+    'style/jsx-one-expression-per-line': 'off',
   },
 }).append(...tailwind.configs['flat/recommended'], {
   rules: {

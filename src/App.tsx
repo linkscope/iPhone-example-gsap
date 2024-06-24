@@ -3,6 +3,7 @@ import Hero from '@/components/hero.tsx'
 import HighLights from '@/components/high-lights.tsx'
 import Model from '@/components/model.tsx'
 import Features from '@/components/features.tsx'
+import HowItWorks from '@/components/how-it-works.tsx'
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <HighLights />
       <Model />
       <Features />
+      <HowItWorks />
     </main>
   )
 }
